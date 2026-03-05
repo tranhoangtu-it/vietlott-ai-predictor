@@ -4,14 +4,11 @@ on:
   push:
     branches: [main]
 
-  # Run 6x/day every 3h covering 6AM-9PM Vietnam (UTC+7)
+  # Run 2x/day to stay within GitHub Actions free tier (2000 min/month)
+  # 2 runs × ~19min × 30 days = ~1,140 min/month
   schedule:
-    - cron: '0 23 * * *'   # 06:00 VN
-    - cron: '0 2 * * *'    # 09:00 VN
-    - cron: '0 5 * * *'    # 12:00 VN
-    - cron: '0 8 * * *'    # 15:00 VN
-    - cron: '0 11 * * *'   # 18:00 VN
-    - cron: '0 14 * * *'   # 21:00 VN
+    - cron: '0 5 * * *'    # 12:00 VN - noon update
+    - cron: '0 14 * * *'   # 21:00 VN - after major draws
 
   workflow_dispatch:
 
